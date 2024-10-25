@@ -1,0 +1,118 @@
+------------------- * Selection Sort * ----------------------
+
+
+1. What is Selection Sort?
+--- Selection Sort sorts an array by repeatedly finding the minimum element from the unsorted part of the array and moving it to the beginning. 
+    This process divides the array into two parts:
+--- Sorted part: Initially empty, it grows as the algorithm progresses.
+--- Unsorted part: The remaining elements that have not yet been sorted.
+
+
+2. How Does Selection Sort Work?
+--- For each position i in the array:
+i). Find the smallest element from the unsorted part of the array (starting from i to the end).
+ii). Swap this smallest element with the element at position i.
+iii). Move the boundary between the sorted and unsorted parts by one position to the right.
+Example: Given an array [64, 25, 12, 22, 11], here’s how Selection Sort would work:
+
+Pass 1: Find the minimum (11), swap it with the first element. Result: [11, 25, 12, 22, 64]
+Pass 2: Find the minimum from the unsorted part (12), swap it with the second element. Result: [11, 12, 25, 22, 64]
+Continue until sorted: [11, 12, 22, 25, 64]
+
+
+3. Selection Sort Implementation :
+Here’s how you can implement Selection Sort in C:
+Code -
+      #include <stdio.h>
+      // Function to perform Selection Sort
+      void selectionSort(int arr[], int n) {
+          for (int i = 0; i < n - 1; i++) {
+              int minIndex = i;
+              // Find the minimum element in the unsorted part
+              for (int j = i + 1; j < n; j++) {
+                  if (arr[j] < arr[minIndex]) {
+                      minIndex = j;
+                  }
+              }
+              // Swap the found minimum element with the first element of unsorted part
+              int temp = arr[minIndex];
+              arr[minIndex] = arr[i];
+              arr[i] = temp;
+          }
+      }
+      // Function to print the array
+      void printArray(int arr[], int n) {
+          for (int i = 0; i < n; i++) {
+              printf("%d ", arr[i]);
+          }
+          printf("\n");
+      }
+      int main() {
+          int arr[] = {64, 25, 12, 22, 11};
+          int n = sizeof(arr) / sizeof(arr[0]);
+      
+          printf("Original array: ");
+          printArray(arr, n);
+      
+          selectionSort(arr, n);
+      
+          printf("Sorted array: ");
+          printArray(arr, n);
+          return 0;
+      }
+Explanation:
+  Outer Loop: Iterates over each position of the array.
+  Inner Loop: Finds the index of the smallest element in the unsorted part of the array.
+  Swapping: The minimum element is swapped with the first unsorted element to grow the sorted portion of the array.
+
+
+4. Time Complexity of Selection Sort :
+--- Selection Sort has a time complexity of O(n^2) in all cases (worst, average, and best) because it always requires nested loops 
+    to iterate through the unsorted portion of the array, regardless of the array’s initial order.  
+Worst Case Complexity: O(n^2)
+Best Case Complexity: O(n^2)
+Average Case Complexity: O(n^2)
+
+
+5. Space Complexity of Selection Sort :
+--- Selection Sort has a space complexity of O(1), as it only requires a constant amount of additional memory for temporary 
+    variables during swapping. This makes it an in-place sorting algorithm.
+
+
+6. Advantages and Disadvantages of Selection Sort :
+Advantages:
+--- Simple to implement and understand.
+--- In-place sorting: No extra space is required.
+--- Works well for small datasets.
+Disadvantages:
+--- Inefficient for large datasets due to its O(n^2) time complexity.
+--- Not stable: It does not maintain the relative order of elements with equal values.
+
+
+7. Optimizing Selection Sort :
+--- One potential improvement is to avoid unnecessary swaps by checking if minIndex is different from i before swapping. 
+    While this doesn’t improve the time complexity, it can reduce the number of swaps.
+
+
+8. Selection Sort Use Cases :
+--- Selection Sort is generally preferred for small datasets where simplicity is more important than efficiency. 
+    It’s not ideal for large datasets, where algorithms like Quick Sort or Merge Sort are better choices due to their lower time complexity.
+
+
+9. Selection Sort vs. Bubble Sort :
+--- Number of Swaps: Selection Sort performs fewer swaps than Bubble Sort (at most n-1), making it potentially faster for situations where swapping is expensive.
+--- Stable Sorting : Bubble Sort can be made stable, while Selection Sort is generally not stable.
+--- Practical Use  : Both are rarely used for large datasets due to their O(n^2)time complexity.
+
+# Example Use Case: Finding the Kth Smallest Element
+--- Selection Sort can be modified to find the Kth smallest element in an unsorted array by running only K passes and stopping after 
+    the Kth smallest element is moved to the sorted part.
+ 
+Summary -
+--- Selection Sort is a straightforward sorting algorithm that repeatedly selects the minimum (or maximum) element from the unsorted portion and 
+    places it in the sorted portion. Though not suitable for large datasets due to its O(n^2) time complexity, Selection Sort’s simplicity makes 
+    it a helpful algorithm for educational purposes and small datasets.
+
+
+
+
