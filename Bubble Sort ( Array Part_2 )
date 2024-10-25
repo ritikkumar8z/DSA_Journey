@@ -1,0 +1,110 @@
+---------------- * Bubble Sort * ----------------
+
+1. What is Bubble Sort?
+--- Bubble Sort is an algorithm that sorts an array by repeatedly moving the largest unsorted element to its correct position. 
+    Each pass through the array "bubbles up" the largest element to the end of the array.
+
+2. How Does Bubble Sort Work?
+--- First Pass :  Start from the beginning of the array and compare each pair of adjacent elements. If an element is larger than the one following it, 
+                  swap them. By the end of the pass, the largest element is moved to the last position.
+--- Next Passes : Repeat the process for all elements except the last one (since it's already sorted). Continue until no more swaps are needed.
+Example: Given an array [5, 2, 9, 1, 5, 6]:
+
+Pass 1: [5, 2, 9, 1, 5, 6] → [2, 5, 1, 5, 6, 9]
+Pass 2: [2, 5, 1, 5, 6] → [2, 1, 5, 5, 6, 9]
+Continue until fully sorted: [1, 2, 5, 5, 6, 9]  
+
+3. Bubble Sort Implementation :
+--- Here’s how you can implement Bubble Sort in C :
+Code - 
+      #include <stdio.h>
+      // Function to perform Bubble Sort
+      void bubbleSort(int arr[], int n) {
+          int temp;
+          for (int i = 0; i < n - 1; i++) {           // Outer loop for passes
+              int swapped = 0;                         // Track if any swap happens
+              for (int j = 0; j < n - i - 1; j++) {   // Inner loop for comparisons
+                  if (arr[j] > arr[j + 1]) {
+                      // Swap elements if they are in the wrong order
+                      temp = arr[j];
+                      arr[j] = arr[j + 1];
+                      arr[j + 1] = temp;
+                      swapped = 1;                     // Mark swap as done
+                  }
+              }
+              // If no swaps occurred in the inner loop, the array is already sorted
+              if (swapped == 0) {
+                  break;
+              }
+          }
+      }
+      // Function to print the array
+      void printArray(int arr[], int n) {
+          for (int i = 0; i < n; i++) {
+              printf("%d ", arr[i]);
+          }
+          printf("\n");
+      }
+      int main() {
+          int arr[] = {5, 2, 9, 1, 5, 6};
+          int n = sizeof(arr) / sizeof(arr[0]);
+      
+          printf("Original array: ");
+          printArray(arr, n);
+      
+          bubbleSort(arr, n);
+      
+          printf("Sorted array: ");
+          printArray(arr, n);
+          return 0;
+      }
+Explanation:
+--- The outer loop runs n-1 times for each pass.
+--- The inner loop runs up to the last unsorted element, comparing and swapping adjacent elements if they are out of order.
+--- The swapped variable tracks if a swap was made; if no swaps occur, the array is sorted, and the algorithm breaks early, optimizing performance.
+
+
+4. Time Complexity of Bubble Sort :
+--- Bubble Sort has different time complexities depending on the input:
+
+i). Worst Case: O(n^2) – Occurs when the array is sorted in reverse order and requires the maximum number of swaps.
+ii). Best Case: O(n) – Occurs when the array is already sorted, and no swaps are needed (optimized with the swapped variable).
+iii). Average Case: O(n^2) – Generally takes quadratic time in average cases.
+
+5. Space Complexity of Bubble Sort :
+--- Bubble Sort has a space complexity of O(1) since it requires only a constant amount of additional memory for the temp variable, 
+    making it an in-place sorting algorithm.
+
+6. Advantages and Disadvantages of Bubble Sort :
+Advantages:
+--- Simple to understand and implement.
+--- Works well with small or nearly sorted arrays due to its simplicity.
+--- Requires no additional memory allocation beyond a few variables.
+Disadvantages:
+--- Inefficient for large arrays due to its quadratic time complexity.
+--- Not commonly used in practical applications when faster sorting algorithms (e.g., Quick Sort, Merge Sort) are available.
+
+
+7. Optimized Bubble Sort :
+--- One way to optimize Bubble Sort is to stop early if the array is already sorted. This optimization was implemented in 
+    the above code with the swapped variable.
+
+
+8. Common Interview Questions Related to Bubble Sort :
+i). When would you use Bubble Sort over more complex sorting algorithms?
+ii). Can Bubble Sort be used on linked lists?
+iii). Explain the impact of Bubble Sort on partially sorted data.
+iv). How can you improve Bubble Sort for best-case scenarios?
+
+
+Summary -
+--- Bubble Sort is a straightforward sorting algorithm with a simple approach to sorting data through adjacent comparisons and swaps. 
+Though it’s not the most efficient for large datasets, it’s a good algorithm to understand fundamental sorting concepts in data structures and algorithms.
+
+
+
+
+
+
+
+
