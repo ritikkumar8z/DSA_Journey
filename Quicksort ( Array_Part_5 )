@@ -1,0 +1,106 @@
+---------------------- * Quicksort * ----------------------
+
+
+# Quicksort Overview :
+--- Quicksort works by selecting a "pivot" element from the array, partitioning the other elements into two subarrays
+    (one with elements less than the pivot, the other with elements greater than the pivot), and recursively sorting the subarrays.
+
+
+# How Quicksort Works :
+--- Choose a Pivot : Select an element from the array as the pivot. There are various strategies, like choosing the first, last, or 
+                     middle element, or picking a random element.
+--- Partitioning  :  Rearrange the array so that elements less than the pivot are on its left, and elements greater than the pivot are on its right.    
+--- Recursive Sorting :  Recursively apply Quicksort to the left and right subarrays.
+--- Base Case : When the subarray has one or zero elements, it's already sorted, so the recursion stops.
+
+Example: Let's sort [10, 7, 8, 9, 1, 5] using Quicksort:
+--- Step 1: Choose 5 as pivot.
+--- Partitioned array: [1, 5, 8, 9, 10, 7]
+--- Step 2: Recursively apply Quicksort to left [1] and right [8, 9, 10, 7] subarrays.
+--- Repeat this process until the array is sorted.
+
+
+Quicksort Code -
+        #include <stdio.h>
+        // Function to swap two elements
+        void swap(int *a, int *b) {
+            int temp = *a;
+            *a = *b;
+            *b = temp;
+        }
+        // Partition function to rearrange elements
+        int partition(int arr[], int low, int high) {
+            int pivot = arr[high];  // Choosing the last element as pivot
+            int i = low - 1;
+        
+            for (int j = low; j < high; j++) {
+                if (arr[j] < pivot) {
+                    i++;
+                    swap(&arr[i], &arr[j]);
+                }
+            }
+            swap(&arr[i + 1], &arr[high]);
+            return i + 1;
+        }
+        // Quicksort function
+        void quickSort(int arr[], int low, int high) {
+            if (low < high) {
+                int pi = partition(arr, low, high);
+        
+                // Recursively sort elements before and after partition
+                quickSort(arr, low, pi - 1);
+                quickSort(arr, pi + 1, high);
+            }
+        }
+        // Function to print the array
+        void printArray(int arr[], int size) {
+            for (int i = 0; i < size; i++) {
+                printf("%d ", arr[i]);
+            }
+            printf("\n");
+        }
+        int main() {
+            int arr[] = {10, 7, 8, 9, 1, 5};
+            int n = sizeof(arr) / sizeof(arr[0]);
+        
+            printf("Original array: ");
+            printArray(arr, n);
+        
+            quickSort(arr, 0, n - 1);
+        
+            printf("Sorted array: ");
+            printArray(arr, n);
+            return 0;
+        }
+Explanation of the Code :
+--- Partition Function : The partition function moves elements smaller than the pivot to its left and larger elements to its right, 
+                        placing the pivot in its correct sorted position.
+--- Quicksort Function : The quickSort function recursively applies itself to subarrays on both sides of the pivot until the array is sorted.
+
+
+# Key Points :
+I). Time Complexity:
+      Best and Average Case: 𝑂(𝑛log 𝑛) — good pivot selection divides the array roughly in half each time.
+      Worst Case: O(n^2 ) — occurs when the smallest or largest element is consistently chosen as the pivot (e.g., a sorted array).
+ii). Space Complexity: O(logn) on average due to recursive calls, making it in-place.
+iii). Stability: Quicksort is not stable, as equal elements may change relative positions.
+
+
+
+Advantages and Disadvantages of Quicksort :
+Advantages:
+--- Efficient for large datasets and outperforms simpler algorithms like Insertion Sort.
+--- In-Place: Does not require additional storage.
+Disadvantages:
+--- Not Stable: Quicksort does not maintain the order of duplicate elements.
+--- Worst-Case Performance: Unoptimized versions have poor performance for already sorted or nearly sorted data.
+
+
+# Use Cases :
+--- Quicksort is used for general-purpose sorting where speed is crucial and stability is not required, such as sorting 
+    large datasets in databases or file systems.
+
+
+
+
+
