@@ -1,0 +1,122 @@
+----------------------------* Counting Sort *----------------------------
+
+
+
+Counting Sort is a non-comparison-based sorting algorithm that works by counting the frequency of each unique element in the array. 
+This algorithm is most efficient when the range of input values is known and relatively small.
+
+
+
+# Table of Contents
+1. Algorithm Overview
+2. Properties
+3. Steps
+4. xample
+5. Complexity Analysis
+6. Limitations
+7. Code Implementation
+
+
+# Algorithm Overview
+--- Counting Sort does not compare elements to determine their order. Instead, it uses an auxiliary array (often called the "count array") to 
+    keep track of the frequency of each value in the input, and then calculates the positions of each element in the sorted array.
+
+
+
+# Properties
+--- Stable: Counting Sort maintains the relative order of elements with equal values.
+--- Not In-Place: It requires additional space for the count and output arrays.
+--- Best for Known Range: Efficient for integer values within a known range.
+--- Time Complexity: O(n+k), where n is the number of elements and k is the range of input values.
+
+
+
+# Steps
+--- Initialize Count Array: Create a count array of size k+1 (where k is the maximum value in the input array) to store the frequency of each element.
+--- Count Occurrences: Traverse the input array and increment the count for each element.
+--- Accumulate Counts: Modify the count array so that each element at index i contains the cumulative sum of counts up to i.
+--- Place Elements: Using the count array, place each element from the input array in its correct position in an output array.
+--- Copy Sorted Array (Optional): If required, copy elements from the output array back into the original array.
+
+
+
+# Example
+--- Given an input array [4, 2, 2, 8, 3, 3, 1], the maximum value is 8. We’ll use a count array of size 9 (0 to 8).
+
+# Step-by-Step Execution
+1. Initialize Count Array:
+--- Initialize a count array of size 9 (from 0 to 8):
+    Count Array: [0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+2. Count Occurrences:
+--- Traverse the input array and update the count array:
+    After counting: [0, 1, 2, 2, 1, 0, 0, 0, 1]
+
+Accumulate Counts:
+--- Convert the count array to cumulative counts:
+    Cumulative counts: [0, 1, 3, 5, 6, 6, 6, 6, 7]
+
+# Place Elements:
+--- Using the cumulative counts, place elements in the correct position in the output array:
+    Output Array: [1, 2, 2, 3, 3, 4, 8]
+
+# Result:
+--- The sorted array is [1, 2, 2, 3, 3, 4, 8].
+
+
+
+# Complexity Analysis
+--- Time Complexity: O(n+k)
+--- Space Complexity: O(k) for the count array and O(n) for the output array.
+
+
+
+# Limitations
+--- Inefficient for large ranges relative to the number of elements.
+--- Not suitable for sorting floating-point numbers or strings without additional mapping to integer indices.
+
+
+
+# Code Implementation
+        def counting_sort(arr):
+            if not arr:
+                return arr
+            
+            max_val = max(arr)
+            min_val = min(arr)
+            
+            # Initialize the count array with size based on the range
+            range_of_elements = max_val - min_val + 1
+            count = [0] * range_of_elements
+            output = [0] * len(arr)
+            
+            # Step 1: Store the count of each element
+            for num in arr:
+                count[num - min_val] += 1
+        
+            # Step 2: Modify count array to store cumulative counts
+            for i in range(1, len(count)):
+                count[i] += count[i - 1]
+        
+            # Step 3: Place elements in sorted order using the count array
+            for num in reversed(arr):
+                output[count[num - min_val] - 1] = num
+                count[num - min_val] -= 1
+        
+            return output
+        
+        # Example Usage
+        arr = [4, 2, 2, 8, 3, 3, 1]
+        sorted_arr = counting_sort(arr)
+        print("Sorted Array:", sorted_arr)
+
+
+# Output:
+  Sorted Array: [1, 2, 2, 3, 3, 4, 8]
+
+
+
+
+
+
+
