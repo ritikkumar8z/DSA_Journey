@@ -1,0 +1,120 @@
+-------------------------------* Merge Sort *-------------------------------
+
+
+Merge Sort is a popular comparison-based, divide-and-conquer sorting algorithm. It divides the array into halves, recursively sorts each half, 
+and then merges the sorted halves back together. Merge Sort is efficient and guarantees a time complexity of 
+O(nlogn), making it a great choice for large datasets.
+
+
+# Table of Contents
+1. Algorithm Overview
+2. Properties
+3. Steps
+4. Example
+5. Complexity Analysis
+6. Advantages and Disadvantages
+7. Code Implementation
+
+
+
+# Algorithm Overview
+--- Merge Sort works by recursively breaking down an array into two halves until each half contains only one element (or no elements). 
+    Then, it merges these smaller sorted arrays back together in the correct order, combining them into a single sorted array.
+
+
+
+# Properties
+--- Stable: Maintains the relative order of elements with equal values.
+--- Not In-Place: Requires additional memory for merging, making it less memory-efficient.
+--- Divide-and-Conquer: Divides the array in half until subarrays of size one are reached.
+--- Time Complexity: Consistently O(nlogn).
+
+
+
+# Steps
+--- Divide: Split the array into two halves.
+--- Conquer (Sort): Recursively sort each half of the array.
+--- Combine (Merge): Merge the two sorted halves back together into a single sorted array.
+
+
+
+# Example
+--- Given an input array [38, 27, 43, 3, 9, 82, 10], we want to sort it using Merge Sort.
+
+# Step-by-Step Execution
+  1. Divide the Array: 
+     Divide [38, 27, 43, 3, 9, 82, 10] into [38, 27, 43] and [3, 9, 82, 10].
+
+  2. Recursively Sort Each Half:
+     Continue dividing until subarrays with a single element are reached:
+     [38, 27, 43] → [38], [27, 43] → [27], [43]
+     [3, 9, 82, 10] → [3, 9] and [82, 10] → [3], [9] and [82], [10]
+
+  3. Merge the Sorted Arrays: 
+     Starting with the smallest subarrays, merge each one back together in sorted order:
+      Merge [27] and [43] → [27, 43]
+      Merge [38] and [27, 43] → [27, 38, 43]
+      Merge [3] and [9] → [3, 9]
+      Merge [82] and [10] → [10, 82]
+      Merge [3, 9] and [10, 82] → [3, 9, 10, 82]
+      Finally, merge [27, 38, 43] and [3, 9, 10, 82]:
+
+Final Merged Array: [3, 9, 10, 27, 38, 43, 82]
+Result : The sorted array is [3, 9, 10, 27, 38, 43, 82].
+
+
+
+# Complexity Analysis
+  Time Complexity: O(nlogn), as it divides the array logn times and merges each level in O(n).
+  Space Complexity: O(n), due to the auxiliary space required for merging.
+
+
+# Advantages and Disadvantages
+Advantages
+--- Stable: Preserves the order of duplicate elements.
+--- Predictable: Always operates in O(nlogn) time, regardless of input distribution.
+--- Good for Linked Lists: Efficient for linked lists since merging can be done without extra space.
+Disadvantages
+--- Not In-Place : Requires O(n) additional memory, making it less space-efficient.
+--- Slower for Small Datasets: Recursive overhead makes it less efficient for small arrays compared to simpler sorts (like Insertion Sort).
+
+Code Implementation
+        
+        def merge_sort(arr):
+            if len(arr) <= 1:
+                return arr
+        
+            # Divide the array into two halves
+            mid = len(arr) // 2
+            left_half = merge_sort(arr[:mid])
+            right_half = merge_sort(arr[mid:])
+        
+            # Merge the sorted halves
+            return merge(left_half, right_half)
+        
+        def merge(left, right):
+            sorted_arr = []
+            i = j = 0
+        
+            # Merge the two halves by comparing elements
+            while i < len(left) and j < len(right):
+                if left[i] <= right[j]:
+                    sorted_arr.append(left[i])
+                    i += 1
+                else:
+                    sorted_arr.append(right[j])
+                    j += 1
+        
+            # Append any remaining elements
+            sorted_arr.extend(left[i:])
+            sorted_arr.extend(right[j:])
+            
+            return sorted_arr
+        
+        # Example Usage
+        arr = [38, 27, 43, 3, 9, 82, 10]
+        sorted_arr = merge_sort(arr)
+        print("Sorted Array:", sorted_arr)
+
+Output:
+Sorted Array: [3, 9, 10, 27, 38, 43, 82]
