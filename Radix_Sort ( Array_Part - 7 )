@@ -1,0 +1,123 @@
+----------------------* Radix Sort *----------------------
+
+
+Radix Sort is a non-comparison-based sorting algorithm that sorts integers by processing individual digits. 
+It’s commonly used for integers and works by sorting each digit from the least significant to the most significant digit 
+(or vice versa) using a stable sorting algorithm, often Counting Sort.
+
+
+# Table of Contents
+1. Algorithm Overview
+2. Properties
+3. Steps
+4. Example
+5. Complexity Analysis
+6. Limitations
+7. Code Implementation
+
+
+
+# Algorithm Overview
+--- Radix Sort sorts numbers by iterating over each digit, sorting the elements based on that digit alone while maintaining the order of 
+    previously processed digits. This process is repeated from the least significant digit (LSD) to the most significant digit (MSD), hence 
+    LSD Radix Sort is commonly used.
+
+--- Radix Sort can work with different bases (e.g., decimal base 10), but it’s especially efficient when used with binary or decimal numbers.
+
+
+
+# Properties
+--- Stable: Radix Sort maintains the relative order of elements with equal values for each digit.
+--- Not In-Place: Requires additional memory for storing intermediate results.
+--- Non-Comparison-Based: Instead of comparing elements, Radix Sort processes digits directly.
+--- Time Complexity: O(d⋅(n+b)), where: n is the number of elements. 
+                                        b is the base (e.g., 10 for decimal numbers).
+                                        d is the number of digits in the longest number.
+
+
+
+# Steps
+--- Determine Maximum Digits: Find the maximum number of digits (d) in the array, as it dictates the number of passes.
+--- Sort by Each Digit: Starting from the least significant digit, use a stable sorting algorithm (typically Counting Sort) to sort elements based on that digit.
+--- Repeat for Each Position: Move to the next more significant digit and repeat the sorting process until all positions have been sorted.
+
+
+
+# Example
+Given an input array [170, 45, 75, 90, 802, 24, 2, 66], we want to sort it using Radix Sort in base 10.
+
+Step-by-Step Execution
+--- Determine the maximum number of digits: The maximum value is 802, which has 3 digits, so we will need 3 passes.
+
+--- Sort by each digit position (starting from least significant):
+    1st Pass (Units Place): Sort by the last digit:
+      Result after 1st pass: [170, 90, 802, 2, 24, 45, 75, 66]
+    2nd Pass (Tens Place): Sort by the tens digit:
+      Result after 2nd pass: [802, 2, 24, 45, 66, 170, 75, 90]
+    3rd Pass (Hundreds Place): Sort by the hundreds digit:
+      Result after 3rd pass: [2, 24, 45, 66, 75, 90, 170, 802]
+Result:
+  The sorted array is [2, 24, 45, 66, 75, 90, 170, 802].
+
+
+
+Complexity Analysis
+Time Complexity: O(d⋅(n+b)), where : d is the number of digits in the largest element.
+                                    n is the number of elements in the input array.
+                                    b is the base (typically 10 for decimal).
+Space Complexity: O(n+b), required for storing intermediate results during each digit pass.
+
+
+
+# Limitations
+--- Only Works for Integers : Radix Sort is typically limited to integers, although it can be adapted for floating-point numbers by scaling.
+--- Not Suitable for Very Large Ranges : When there are a large number of digits (e.g., in high-base number systems or very large integers), 
+    Radix Sort may become less efficient than comparison-based algorithms.
+--- Requires a Stable Sort : Radix Sort relies on a stable sorting algorithm (such as Counting Sort) to maintain order for each digit level.
+
+
+
+# Code Implementation
+
+        def counting_sort(arr, exp):
+            n = len(arr)
+            output = [0] * n  # Output array that will have sorted numbers
+            count = [0] * 10  # Initialize count array for base 10
+        
+            # Count occurrences of each digit in the given exponent position
+            for i in range(n):
+                index = (arr[i] // exp) % 10
+                count[index] += 1
+        
+            # Change count to represent the cumulative position
+            for i in range(1, 10):
+                count[i] += count[i - 1]
+        
+            # Build the output array by placing elements in correct positions
+            for i in range(n - 1, -1, -1):
+                index = (arr[i] // exp) % 10
+                output[count[index] - 1] = arr[i]
+                count[index] -= 1
+        
+            # Copy the sorted elements into the original array
+            for i in range(n):
+                arr[i] = output[i]
+        
+        def radix_sort(arr):
+            # Find the maximum number to determine the number of digits
+            max_val = max(arr)
+        
+            # Apply counting sort to each digit (place value)
+            exp = 1
+            while max_val // exp > 0:
+                counting_sort(arr, exp)
+                exp *= 10
+        
+        # Example Usage
+        arr = [170, 45, 75, 90, 802, 24, 2, 66]
+        radix_sort(arr)
+        print("Sorted Array:", arr)
+Output:
+Sorted Array: [2, 24, 45, 66, 75, 90, 170, 802]
+
+
