@@ -1,0 +1,84 @@
+------------------------* Linear Search *------------------------
+
+
+
+🔍 Linear Search in Data Structures and Algorithms :
+--- Linear Search is a simple and straightforward search algorithm that checks each element of a list until it finds the target 
+    element or reaches the end of the list.
+
+
+📝 Key Points :
+Definition 
+--- Linear search is a sequential search algorithm that traverses through each element in a list until the desired element is found.
+Algorithm Complexity
+--- Time Complexity : O(n), where 𝑛 is the number of elements in the array. This is because each element may need to be checked in the worst case.
+--- Space Complexity : O(1) as it only requires constant extra space.
+When to Use
+--- Use Linear Search when the dataset is small or unsorted.
+--- Not recommended for large datasets due to inefficiency compared to other algorithms like Binary Search.
+Advantages
+--- Simple to implement.
+--- Does not require the dataset to be sorted.
+Disadvantages
+--- Slow for large datasets.
+--- Inefficient compared to other searching algorithms for large datasets.
+
+
+🔧 Algorithm Steps
+--- Start from the first element of the list.
+--- Compare each element with the target element.
+--- If an element matches the target, return its position (or index).
+--- If no element matches, return -1 or an indicator that the element is not found.
+
+
+💻 Example in C
+--- Here’s a C program that demonstrates a linear search function. This function returns the index of the target element if found, otherwise returns -1.
+
+        #include <stdio.h>
+        
+        int linearSearch(int arr[], int size, int target) {
+            for (int i = 0; i < size; i++) {
+                if (arr[i] == target) {  // Check if current element matches target
+                    return i;            // Return index if found
+                }
+            }
+            return -1;                   // Return -1 if not found
+        }
+        
+        int main() {
+            int arr[] = {5, 3, 8, 4, 2, 9, 1};
+            int size = sizeof(arr) / sizeof(arr[0]);
+            int target = 4;
+        
+            int result = linearSearch(arr, size, target);
+        
+            if (result != -1) {
+                printf("Element found at index %d\n", result);
+            } else {
+                printf("Element not found in the array\n");
+            }
+        
+            return 0;
+        }
+
+
+
+🧪 Explanation of the Example
+--- Input : Array {5, 3, 8, 4, 2, 9, 1}, and we are searching for 4.
+--- Process: The loop iterates through each element in the array.
+             When it reaches the element 4, it matches the target and returns the index.
+--- Output : If the element is found, the program prints the index.
+             If the element is not found, it prints "Element not found in the array".
+
+
+📂 Sample Output
+--- Element found at index 3
+
+
+
+📌 Edge Cases to Consider
+1. Target Not in Array: Ensure the function returns -1 or appropriate indicator if the target is absent.
+2. Empty Array: Function should handle cases where the array has no elements.
+3. Multiple Occurrences: Linear search returns the first occurrence of the target element.
+
+
