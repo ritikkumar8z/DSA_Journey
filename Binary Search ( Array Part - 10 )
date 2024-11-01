@@ -1,0 +1,100 @@
+-------------------------* Binary Search *-------------------------
+
+
+
+🔍 Binary Search in Data Structures and Algorithms
+--- Binary Search is an efficient algorithm for finding a target value within a sorted array. It repeatedly divides the search interval in half, 
+    significantly reducing the number of comparisons.
+
+
+📝 Key Points
+Definition:
+--- Binary Search is a search algorithm that works on a sorted array by dividing the search interval in half after each comparison.
+Algorithm Complexity
+--- Time Complexity: O(logn), where n is the number of elements in the array.
+--- Space Complexity: O(1) for the iterative approach; O(logn) for the recursive approach due to call stack space.
+When to Use:
+--- Use Binary Search when you have a sorted dataset.
+--- Not applicable for unsorted arrays, as it relies on the sorted order to function correctly.
+Advantages:
+--- Significantly faster than linear search for large, sorted datasets.
+Disadvantages:
+--- Only works on sorted arrays.
+--- Additional complexity if the data needs to be sorted first.
+
+
+
+🔧 Algorithm Steps
+1. Define the search interval with low and high pointers at the start and end of the array, respectively.
+2. Calculate the midpoint: mid = low + (high - low) / 2.
+3. Compare the middle element with the target:
+   --- If the middle element is equal to the target, return the index.
+   --- If the middle element is greater than the target, adjust the high pointer to mid - 1.
+   --- If the middle element is less than the target, adjust the low pointer to mid + 1.
+4. Repeat until low exceeds high.
+5. If no element matches, return -1 (element not found).
+
+
+💻 Example in C
+--- Here’s a C program that demonstrates a binary search function. This function returns the index of the target element if found, otherwise returns -1.
+
+        #include <stdio.h>
+        
+        int binarySearch(int arr[], int size, int target) {
+            int low = 0;
+            int high = size - 1;
+        
+            while (low <= high) {
+                int mid = low + (high - low) / 2;  // Calculate mid-point
+        
+                if (arr[mid] == target) {           // Target found
+                    return mid;
+                } else if (arr[mid] < target) {     // Search in right half
+                    low = mid + 1;
+                } else {                            // Search in left half
+                    high = mid - 1;
+                }
+            }
+        
+            return -1;  // Target not found
+        }
+        
+        int main() {
+            int arr[] = {1, 2, 4, 5, 8, 9, 12};    // Sorted array
+            int size = sizeof(arr) / sizeof(arr[0]);
+            int target = 5;
+        
+            int result = binarySearch(arr, size, target);
+        
+            if (result != -1) {
+                printf("Element found at index %d\n", result);
+            } else {
+                printf("Element not found in the array\n");
+            }
+        
+            return 0;
+        }
+
+🧪 Explanation of the Example
+Input:
+--- Sorted array {1, 2, 4, 5, 8, 9, 12}, searching for 5.
+Process:
+--- Initial interval: low = 0, high = size - 1.
+--- Calculate mid, and check if the element at mid equals the target.
+--- Adjust low or high based on the comparison until the target is found or the interval collapses.
+Output:
+--- If the target is found, the program prints the index.
+--- If the target is not found, it prints "Element not found in the array."
+
+📂 Sample Output
+Element found at index 3
+
+
+📌 Edge Cases to Consider
+1. Target Not in Array: The function should return -1 if the target is absent.
+2. Empty Array: Function should handle cases where the array is empty.
+3. Single Element Array: Ensure correct results when the array has only one element.
+4. Duplicates: Binary Search typically finds the first occurrence of the target, but only works correctly if duplicates are handled.
+
+
+
