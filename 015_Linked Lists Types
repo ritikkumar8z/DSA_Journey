@@ -1,0 +1,208 @@
+----------------------* Linked Lists Types *----------------------
+
+
+
+# DSA Linked Lists Types
+★ Types of Linked Lists
+   --- There are three main types of linked lists:
+1. Singly Linked List - Each node contains data and a pointer to the next node. This is the simplest type and takes up the 
+   least amount of memory since each node has only one pointer.
+2. Doubly Linked List - Each node has pointers to both the next and previous nodes, allowing traversal in both directions. 
+   This requires more memory but offers more flexibility for moving forward and backward.
+3. Circular Linked List - This can be either singly or doubly linked, with the last node pointing back to the head node, making it a circular structure. 
+   Circular linked lists are useful in applications where data needs to be cycled through repeatedly.
+
+
+1. Singly Linked List
+--- In a singly linked list, each node has only one pointer that points to the next node. The last node points to null, indicating the end of the list.
+
+➤ Python Implementation of Singly Linked List
+
+        class Node:
+            def __init__(self, data):
+                self.data = data
+                self.next = None
+        # Create nodes
+        node1 = Node(3)
+        node2 = Node(5)
+        node3 = Node(13)
+        node4 = Node(2)
+        
+        # Link nodes
+        node1.next = node2
+        node2.next = node3
+        node3.next = node4
+        
+        # Print the linked list
+        currentNode = node1
+        while currentNode:
+            print(currentNode.data, end=" -> ")
+            currentNode = currentNode.next
+        print("null")
+
+
+➲ Explanation:
+--- Each node has a data value and a next pointer.
+--- We link nodes one after the other and traverse them to print each node's data.
+
+
+
+2. Doubly Linked List
+--- In a doubly linked list, each node has pointers to both the next and previous nodes. This allows traversal in both directions.
+
+➤ Python Implementation of Doubly Linked List
+
+        class Node:
+            def __init__(self, data):
+                self.data = data
+                self.next = None
+                self.prev = None
+        
+        # Create nodes
+        node1 = Node(3)
+        node2 = Node(5)
+        node3 = Node(13)
+        node4 = Node(2)
+        
+        # Link nodes in both directions
+        node1.next = node2
+        
+        node2.prev = node1
+        node2.next = node3
+        
+        node3.prev = node2
+        node3.next = node4
+        
+        node4.prev = node3
+        
+        # Forward traversal
+        print("\nTraversing forward:")
+        currentNode = node1
+        while currentNode:
+            print(currentNode.data, end=" -> ")
+            currentNode = currentNode.next
+        print("null")
+        
+        # Backward traversal
+        print("\nTraversing backward:")
+        currentNode = node4
+        while currentNode:
+            print(currentNode.data, end=" -> ")
+            currentNode = currentNode.prev
+        print("null")
+
+
+➲ Explanation:
+--- Each node has a data value, next pointer, and prev pointer.
+--- We can traverse forward from node1 to node4 and backward from node4 to node1.
+
+
+3. Circular Singly Linked List
+--- In a circular singly linked list, the last node points back to the head, forming a circular structure. This type of list is often used for tasks requiring continuous cycling.
+
+➤ Python Implementation of Circular Singly Linked List
+
+        class Node:
+            def __init__(self, data):
+                self.data = data
+                self.next = None
+        
+        # Create nodes
+        node1 = Node(3)
+        node2 = Node(5)
+        node3 = Node(13)
+        node4 = Node(2)
+        
+        # Link nodes and make it circular
+        node1.next = node2
+        node2.next = node3
+        node3.next = node4
+        node4.next = node1  # Circular link
+        
+        # Print the circular linked list once
+        currentNode = node1
+        startNode = node1
+        print(currentNode.data, end=" -> ")
+        currentNode = currentNode.next
+        
+        while currentNode != startNode:
+            print(currentNode.data, end=" -> ")
+            currentNode = currentNode.next
+        print("...")
+
+
+➲ Explanation:
+--- By setting the next pointer of the last node (node4) to the first node (node1), we create a circular link.
+--- To avoid infinite looping, we stop printing once we reach the starting node.
+
+
+4. Circular Doubly Linked List
+--- A circular doubly linked list is a doubly linked list where the last node points to the head, and the head node’s 
+    prev pointer points back to the tail, allowing full traversal in both directions.
+
+➤ Python Implementation of Circular Doubly Linked List
+
+        class Node:
+            def __init__(self, data):
+                self.data = data
+                self.next = None
+                self.prev = None
+        
+        # Create nodes
+        node1 = Node(3)
+        node2 = Node(5)
+        node3 = Node(13)
+        node4 = Node(2)
+        
+        # Link nodes in both directions and make it circular
+        node1.next = node2
+        node1.prev = node4
+        
+        node2.prev = node1
+        node2.next = node3
+        
+        node3.prev = node2
+        node3.next = node4
+        
+        node4.prev = node3
+        node4.next = node1  # Circular link
+        
+        # Forward traversal
+        print("\nTraversing forward:")
+        currentNode = node1
+        startNode = node1
+        print(currentNode.data, end=" -> ")
+        currentNode = currentNode.next
+        
+        while currentNode != startNode:
+            print(currentNode.data, end=" -> ")
+            currentNode = currentNode.next
+        print("...")
+        
+        # Backward traversal
+        print("\nTraversing backward:")
+        currentNode = node4
+        startNode = node4
+        print(currentNode.data, end=" -> ")
+        currentNode = currentNode.prev
+        
+        while currentNode != startNode:
+            print(currentNode.data, end=" -> ")
+            currentNode = currentNode.prev
+        print("...")
+
+➲ Explanation:
+--- Similar to the doubly linked list, but with circular pointers.
+--- We connect the last node (node4) back to the first node (node1) in both directions.
+--- Forward and backward traversals print the list once, stopping when we reach the starting node.
+
+
+Summary
+➤ Each type of linked list has unique benefits and use cases:
+--- Singly Linked List: Simple and memory-efficient for forward-only traversal.
+--- Doubly Linked List: Suitable for bidirectional traversal.
+--- Circular Singly Linked List: Useful for applications needing repeated cycling.
+--- Circular Doubly Linked List: Ideal when continuous and bidirectional traversal is needed.
+
+
+
