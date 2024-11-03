@@ -1,0 +1,124 @@
+---------------------* DSA Linked Lists in Memory *---------------------
+
+
+
+# DSA Linked Lists in Memory
+1. Understanding Computer Memory
+To understand how linked lists differ from arrays, it's essential to grasp the basics of computer memory.
+
+--- Computer memory stores all data that a program is using, including variables, arrays, and linked lists.
+--- Each variable has a specific memory address, which tells the computer where the data is stored.
+
+
+2. Storing Variables in Memory
+  Imagine storing an integer value, such as 17, in a variable named myNumber. If the address in memory is 0x7F30, the computer knows where to find the value 17. 
+  For instance, if the computer is using two bytes (16 bits) for each integer, it will read 0x7F30 and the next byte to get the complete integer.
+
+
+3. Arrays in Memory
+--- Arrays store elements contiguously in memory.
+--- This means each element is stored right after the previous one, making it easy to access any element using the index (e.g., myArray[2]).
+
+However, this structure has limitations:
+i).  Insertion/Deletion: When inserting or deleting elements, all subsequent elements must be shifted.
+ii). Fixed Size: Arrays require a predefined size, so you need to know how many elements you'll need in advance.
+
+
+4. Linked Lists in Memory
+A linked list stores data differently from arrays:
+--- Each node in a linked list has two parts: data and a pointer (link) to the next node.
+--- Nodes can be stored anywhere in memory, as each node points to the next.
+--- Insertion and deletion do not require shifting other elements, as nodes are only linked by pointers.
+
+
+5. Advantages of Linked Lists
+--- Dynamic Size: Linked lists can grow or shrink as needed.
+--- Efficient Insertions/Deletions: Adding or removing elements does not require shifting, making it efficient for certain operations.
+
+
+6. Disadvantages of Linked Lists
+--- Sequential Access: To access a node, you must traverse the list from the start.
+--- Extra Memory: Each node requires additional memory to store a pointer.
+
+
+# Example of Linked List Implementation in C
+--- Let’s create a simple linked list in C with four nodes containing values 3, 5, 13, and 2. Each node will contain an integer 
+    and a pointer to the next node in the list.
+
+        #include <stdio.h>
+        #include <stdlib.h>
+        
+        // Node structure containing data and a pointer to the next node
+        typedef struct Node {
+            int data;
+            struct Node* next;
+        } Node;
+        
+        // Function to create a new node with given data
+        Node* createNode(int data) {
+            Node* newNode = (Node*)malloc(sizeof(Node));
+            if (!newNode) {
+                printf("Memory allocation failed!\n");
+                exit(1);
+            }
+            newNode->data = data;
+            newNode->next = NULL;
+            return newNode;
+        }
+        
+        // Function to print the linked list
+        void printList(Node* node) {
+            while (node) {
+                printf("%d -> ", node->data);
+                node = node->next;
+            }
+            printf("NULL\n");
+        }
+        
+        // Main function to create and print a linked list
+        int main() {
+            // Creating nodes
+            Node* node1 = createNode(3);
+            Node* node2 = createNode(5);
+            Node* node3 = createNode(13);
+            Node* node4 = createNode(2);
+        
+            // Linking nodes
+            node1->next = node2;
+            node2->next = node3;
+            node3->next = node4;
+        
+            // Printing the linked list
+            printList(node1);
+        
+            // Free the memory to prevent memory leaks
+            free(node1);
+            free(node2);
+            free(node3);
+            free(node4);
+        
+            return 0;
+        }
+
+
+# Explanation of the Code
+i). Node Structure:
+--- Node struct defines the structure of a node, containing an integer (data) and a pointer to the next node (next).
+
+ii). Creating a New Node:
+--- createNode(int data) function allocates memory for a new node, sets the node’s data to the given integer, and initializes the next pointer to NULL.
+
+iii). Printing the Linked List:
+--- printList(Node* node) function traverses the linked list from the head node, printing each node's data followed by an arrow (->). When the end of the list is reached, it prints NULL.
+
+iv). Memory Cleanup:
+--- After the list is printed, memory allocated to each node is freed to avoid memory leaks. This is good practice when working with dynamically allocated memory in C.
+
+
+# Output
+3 -> 5 -> 13 -> 2 -> NULL
+
+
+# Traversing a Linked List
+In the code above, printList() function demonstrates traversal, where we visit each node one by one using the next pointers.
+
