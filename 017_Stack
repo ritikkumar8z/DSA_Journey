@@ -1,0 +1,221 @@
+-----------------------------* Stack *-----------------------------
+
+
+
+# Stack Data Structure
+# Overview
+--- A Stack is a linear data structure that follows the Last In, First Out (LIFO) principle. This means that the last element added to the 
+    stack will be the first to be removed. Stacks are commonly implemented using arrays or linked lists in C.
+
+★ Stack Operations
+--- Push: Adds a new element to the top of the stack.
+--- Pop: Removes and returns the top element from the stack.
+--- Peek: Returns the top element without removing it.
+--- isEmpty: Checks if the stack is empty.
+--- Size: Returns the number of elements in the stack.
+Below are implementations of these operations using both arrays and linked lists.
+
+
+
+# Stack Implementation Using Arrays
+➤ Code (Array-Based Stack)
+
+          #include <stdio.h>
+          #define MAX 10  // Define the maximum size of the stack
+          
+          int stack[MAX];
+          int top = -1;  // Initialize stack top pointer
+          
+          // Push operation
+          void push(int value) {
+              if (top == MAX - 1) {  // Check if stack is full
+                  printf("Stack overflow\n");
+              } else {
+                  stack[++top] = value;
+                  printf("Pushed %d\n", value);
+              }
+          }
+          
+          // Pop operation
+          int pop() {
+              if (top == -1) {  // Check if stack is empty
+                  printf("Stack underflow\n");
+                  return -1;
+              } else {
+                  printf("Popped %d\n", stack[top]);
+                  return stack[top--];
+              }
+          }
+          
+          // Peek operation
+          int peek() {
+              if (top == -1) {  // Check if stack is empty
+                  printf("Stack is empty\n");
+                  return -1;
+              } else {
+                  return stack[top];
+              }
+          }
+          
+          // isEmpty operation
+          int isEmpty() {
+              return top == -1;
+          }
+          
+          // Size operation
+          int size() {
+              return top + 1;
+          }
+          
+          int main() {
+              push(1);
+              push(2);
+              push(3);
+          
+              printf("Top element: %d\n", peek());
+              printf("Stack size: %d\n", size());
+          
+              pop();
+              printf("Stack size after pop: %d\n", size());
+          
+              printf("Is stack empty? %s\n", isEmpty() ? "Yes" : "No");
+          
+              return 0;
+          }
+
+# Output (Array-Based Stack) :
+        Pushed 1
+        Pushed 2
+        Pushed 3
+        Top element: 3
+        Stack size: 3
+        Popped 3
+        Stack size after pop: 2
+        Is stack empty? No
+
+
+# Stack Implementation Using Linked Lists
+➤ Code (Linked List-Based Stack)
+
+          #include <stdio.h>
+          #include <stdlib.h>
+          
+          // Define a Node structure
+          struct Node {
+              int value;
+              struct Node* next;
+          };
+          
+          struct Node* top = NULL;  // Initialize the stack top as NULL
+          
+          // Push operation
+          void push(int value) {
+              struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+              if (newNode == NULL) {
+                  printf("Stack overflow\n");
+                  return;
+              }
+              newNode->value = value;
+              newNode->next = top;
+              top = newNode;
+              printf("Pushed %d\n", value);
+          }
+          
+          // Pop operation
+          int pop() {
+              if (top == NULL) {  // Check if stack is empty
+                  printf("Stack is empty\n");
+                  return -1;
+              } else {
+                  int poppedValue = top->value;
+                  struct Node* temp = top;
+                  top = top->next;
+                  free(temp);
+                  printf("Popped %d\n", poppedValue);
+                  return poppedValue;
+              }
+          }
+          
+          // Peek operation
+          int peek() {
+              if (top == NULL) {  // Check if stack is empty
+                  printf("Stack is empty\n");
+                  return -1;
+              } else {
+                  return top->value;
+              }
+          }
+          
+          // isEmpty operation
+          int isEmpty() {
+              return top == NULL;
+          }
+          
+          // Size operation
+          int size() {
+              int count = 0;
+              struct Node* temp = top;
+              while (temp != NULL) {
+                  count++;
+                  temp = temp->next;
+              }
+              return count;
+          }
+          
+          int main() {
+              push(1);
+              push(2);
+              push(3);
+          
+              printf("Top element: %d\n", peek());
+              printf("Stack size: %d\n", size());
+          
+              pop();
+              printf("Stack size after pop: %d\n", size());
+          
+              printf("Is stack empty? %s\n", isEmpty() ? "Yes" : "No");
+          
+              return 0;
+          }
+
+# Output (Linked List-Based Stack) :
+        Pushed 1
+        Pushed 2
+        Pushed 3
+        Top element: 3
+        Stack size: 3
+        Popped 3
+        Stack size after pop: 2
+        Is stack empty? No
+
+
+# Explanation of Each Operation :
+➤ Push:
+  --- Array: Adds an element to the top index. If top reaches MAX - 1, it signals a stack overflow.
+  --- Linked List: Creates a new node, sets it to point to the current top, and updates top.
+
+➤ Pop:
+  --- Array: Returns the element at top and decrements top. If top is -1, it signals a stack underflow.
+  --- Linked List: Removes the top node, updates top to the next node, and frees the memory of the removed node.
+
+➤ Peek:
+  --- Returns the element at top without removing it. If the stack is empty, it returns an appropriate message.
+
+➤ isEmpty:
+  --- Checks if the stack is empty. Returns true if top is -1 (array) or NULL (linked list).
+
+➤ Size:
+  --- Array: Returns top + 1.
+  --- Linked List: Traverses the linked list, counting the nodes to get the stack size.
+
+
+# Pros and Cons
+➤ Array Implementation:
+  --- Pros: Simple, efficient for fixed-size stacks.
+  --- Cons: Fixed maximum size, potential for stack overflow.
+
+➤ Linked List Implementation:
+  --- Pros: Dynamic size, only limited by available memory.
+  --- Cons: More complex, requires extra memory for node pointers.
+
+
