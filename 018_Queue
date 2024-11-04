@@ -1,0 +1,258 @@
+------------------------* Queue *------------------------
+
+
+
+# Queue Data Structure
+
+# Overview
+--- A Queue is a linear data structure that follows the First In, First Out (FIFO) principle. In a queue, the first element added
+    is the first to be removed, similar to a line of people waiting at a checkout.
+
+
+# Queue Operations
+--- Enqueue: Adds an element to the end of the queue.
+--- Dequeue: Removes and returns the element from the front of the queue.
+--- Peek: Returns the front element without removing it.
+--- isEmpty: Checks if the queue is empty.
+--- Size: Returns the number of elements in the queue.
+Below are implementations of these operations using both arrays and linked lists.
+
+
+
+# Queue Implementation Using Arrays
+
+⟹ Code (Array-Based Queue)
+          
+          #include <stdio.h>
+          #define MAX 10  // Define the maximum size of the queue
+          
+          int queue[MAX];
+          int front = -1;
+          int rear = -1;
+          
+          // Enqueue operation
+          void enqueue(int value) {
+              if (rear == MAX - 1) {  // Check if the queue is full
+                  printf("Queue overflow\n");
+              } else {
+                  if (front == -1) front = 0;  // Initialize front if it's the first element
+                  queue[++rear] = value;
+                  printf("Enqueued %d\n", value);
+              }
+          }
+          
+          // Dequeue operation
+          int dequeue() {
+              if (front == -1 || front > rear) {  // Check if queue is empty
+                  printf("Queue underflow\n");
+                  return -1;
+              } else {
+                  int dequeuedValue = queue[front++];
+                  printf("Dequeued %d\n", dequeuedValue);
+                  if (front > rear) front = rear = -1;  // Reset if queue becomes empty
+                  return dequeuedValue;
+              }
+          }
+          
+          // Peek operation
+          int peek() {
+              if (front == -1) {  // Check if queue is empty
+                  printf("Queue is empty\n");
+                  return -1;
+              } else {
+                  return queue[front];
+              }
+          }
+          
+          // isEmpty operation
+          int isEmpty() {
+              return front == -1;
+          }
+          
+          // Size operation
+          int size() {
+              if (front == -1) return 0;
+              return rear - front + 1;
+          }
+          
+          int main() {
+              enqueue(1);
+              enqueue(2);
+              enqueue(3);
+          
+              printf("Front element: %d\n", peek());
+              printf("Queue size: %d\n", size());
+          
+              dequeue();
+              printf("Queue size after dequeue: %d\n", size());
+          
+              printf("Is queue empty? %s\n", isEmpty() ? "Yes" : "No");
+          
+              return 0;
+          }
+
+# Output (Array-Based Queue)
+
+Enqueued 1
+Enqueued 2
+Enqueued 3
+Front element: 1
+Queue size: 3
+Dequeued 1
+Queue size after dequeue: 2
+Is queue empty? No
+
+
+
+
+# Queue Implementation Using Linked Lists
+
+⟹ Code (Linked List-Based Queue)
+
+          #include <stdio.h>
+          #include <stdlib.h>
+          
+          // Define a Node structure
+          struct Node {
+              int data;
+              struct Node* next;
+          };
+          
+          struct Node* front = NULL;  // Initialize front pointer
+          struct Node* rear = NULL;   // Initialize rear pointer
+          
+          // Enqueue operation
+          void enqueue(int value) {
+              struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+              if (newNode == NULL) {
+                  printf("Queue overflow\n");
+                  return;
+              }
+              newNode->data = value;
+              newNode->next = NULL;
+              if (rear == NULL) {  // Check if the queue is empty
+                  front = rear = newNode;
+              } else {
+                  rear->next = newNode;
+                  rear = newNode;
+              }
+              printf("Enqueued %d\n", value);
+          }
+          
+          // Dequeue operation
+          int dequeue() {
+              if (front == NULL) {  // Check if queue is empty
+                  printf("Queue is empty\n");
+                  return -1;
+              } else {
+                  int dequeuedValue = front->data;
+                  struct Node* temp = front;
+                  front = front->next;
+                  if (front == NULL) rear = NULL;  // Reset rear if the queue is now empty
+                  free(temp);
+                  printf("Dequeued %d\n", dequeuedValue);
+                  return dequeuedValue;
+              }
+          }
+          
+          // Peek operation
+          int peek() {
+              if (front == NULL) {  // Check if queue is empty
+                  printf("Queue is empty\n");
+                  return -1;
+              } else {
+                  return front->data;
+              }
+          }
+          
+          // isEmpty operation
+          int isEmpty() {
+              return front == NULL;
+          }
+          
+          // Size operation
+          int size() {
+              int count = 0;
+              struct Node* temp = front;
+              while (temp != NULL) {
+                  count++;
+                  temp = temp->next;
+              }
+              return count;
+          }
+          
+          // Helper function to print the queue
+          void printQueue() {
+              struct Node* temp = front;
+              printf("Queue: ");
+              while (temp != NULL) {
+                  printf("%d ", temp->data);
+                  temp = temp->next;
+              }
+              printf("\n");
+          }
+          
+          int main() {
+              enqueue(1);
+              enqueue(2);
+              enqueue(3);
+          
+              printQueue();
+          
+              printf("Front element: %d\n", peek());
+              printf("Queue size: %d\n", size());
+          
+              dequeue();
+              printQueue();
+              printf("Queue size after dequeue: %d\n", size());
+          
+              printf("Is queue empty? %s\n", isEmpty() ? "Yes" : "No");
+          
+              return 0;
+          }
+
+# Output (Linked List-Based Queue)
+
+Enqueued 1
+Enqueued 2
+Enqueued 3
+Queue: 1 2 3
+Front element: 1
+Queue size: 3
+Dequeued 1
+Queue: 2 3
+Queue size after dequeue: 2
+Is queue empty? No
+
+
+
+# Explanation of Each Operation
+⟹ Enqueue:
+  --- Array: Adds an element to the rear index. If rear reaches MAX - 1, it signals a queue overflow.
+  --- Linked List: Creates a new node, sets it as the new rear, and updates the previous rear to point to this node.
+
+⟹ Dequeue:
+  --- Array: Returns the element at front and increments front. If front exceeds rear, the queue is reset.
+  --- Linked List: Removes the node at front, updates front to the next node, and frees the removed node's memory.
+
+⟹ Peek:
+  --- Returns the element at front without removing it. If the queue is empty, it returns an appropriate message.
+
+⟹ isEmpty:
+  --- Checks if the queue is empty. Returns true if front is -1 (array) or NULL (linked list).
+
+⟹ Size:
+  --- Array: Returns rear - front + 1.
+  --- Linked List: Traverses the linked list, counting the nodes to get the queue size.
+
+
+# Pros and Cons
+⟹ Array Implementation:
+  --- Pros: Simple, efficient for fixed-size queues.
+  --- Cons: Fixed maximum size, potential for queue overflow, and costly shifting if not reset properly.
+
+⟹ Linked List Implementation:
+  --- Pros: Dynamic size, no shifting needed.
+  --- Cons: Requires extra memory for node pointers and can be more complex to implement.
+
+
