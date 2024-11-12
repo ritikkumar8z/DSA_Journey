@@ -1,6 +1,7 @@
 ----------------------------* Linked Lists *----------------------------
 
 
+
 # Linked Lists in Data Structures and Algorithms (DSA)
 --- Linked lists are a fundamental data structure used to store a collection of elements. Each element in a linked list, called a node, 
     contains data and a reference to the next node, allowing efficient insertions and deletions without the need for contiguous memory.
