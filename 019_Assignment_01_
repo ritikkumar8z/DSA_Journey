@@ -1,5 +1,6 @@
 # Question 1 : Arrays - Operations and Properties
 
+
           #include <stdio.h>
           #define SIZE 10
           
