@@ -1,6 +1,6 @@
 1. Introduction to Pre-order Traversal
 Definition: Pre-order Traversal is a type of Depth First Search (DFS) in binary trees, where each node is visited in the following order:
-
+ 
 Visit the root node.
   Traverse the left subtree.
   Traverse the right subtree.
