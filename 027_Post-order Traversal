@@ -1,4 +1,4 @@
-DSA: Post-order Traversal of Binary Trees
+# Post-order Traversal of Binary Trees
     In Post-order Traversal, each node is visited in a "Left, Right, Root" sequence. It’s another type of Depth-First Search (DFS) traversal, 
     commonly used for tasks that involve deleting nodes or evaluating expressions represented in tree form.
 
