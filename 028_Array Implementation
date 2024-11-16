@@ -101,5 +101,3 @@ Post-order Traversal: C D A E F B R
 
 This implementation highlights efficient traversal in an array-based Binary Tree.
 
-
-
