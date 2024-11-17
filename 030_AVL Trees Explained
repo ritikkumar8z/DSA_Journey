@@ -1,7 +1,7 @@
 -----------------------* AVL Trees Explained *----------------------
 
 
-
+ 
 # AVL Trees Explained
 --- An AVL Tree is a self-balancing binary search tree (BST) named after its inventors, Georgy Adelson-Velsky and Evgenii Landis. 
     It ensures that the height of the tree remains balanced, which significantly improves the efficiency of search, insert, and delete operations. 
