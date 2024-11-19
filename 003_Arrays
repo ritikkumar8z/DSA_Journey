@@ -174,7 +174,7 @@ Code -
           printf("Maximum element is %d", findMax(arr, n));
           return 0;
       }
-
+ 
 Summary :
 --- Arrays in C are foundational data structures that store data in contiguous memory locations. Operations like 
     insertion, deletion, search, and traversal are key to working with arrays. Understanding these 
