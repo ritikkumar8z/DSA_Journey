@@ -37,7 +37,7 @@ Python	Great for readability and ease of use
 
 # 1. Arrays 📊
 Overview: Introduction to arrays, memory layout, and usage.
-Operations: Traversal, insertion, deletion, and searching.
+Operations: Traversal, insertion, deletion, and searching. 
 Code: Implementation in C and Python.
 
 # 3. Linked Lists 🔗
