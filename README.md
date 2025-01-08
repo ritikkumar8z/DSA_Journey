@@ -3,7 +3,7 @@ Welcome to my DSA Journey! 🌟 This repository is a step-by-step guide to maste
 examples, and comparisons. The goal is to make complex concepts easy to understand and apply. Join me as I tackle each concept in languages like C and Python! 🐍💻
  
    
-# 🌐 Contents   
+# 🌐 Contents    
   
 Introduction - A brief overview of the journey ahead   
 Data Structures 📂 
