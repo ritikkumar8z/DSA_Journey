@@ -4,7 +4,7 @@ class Graph:
         self.size = size
         self.vertex_data = [''] * size
 
-    def add_edge(self, u, v, weight, directed=False):
+    def add_edge(self, u, v, weight, directed=False): 
         if 0 <= u < self.size and 0 <= v < self.size:
             self.adj_matrix[u][v] = weight
             if not directed:
