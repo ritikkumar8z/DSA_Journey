@@ -1,14 +1,14 @@
------------------------* AVL Trees Explained *----------------------
+ // -----------------------* AVL Trees Explained *----------------------
 
 
   
-# AVL Trees Explained
---- An AVL Tree is a self-balancing binary search tree (BST) named after its inventors, Georgy Adelson-Velsky and Evgenii Landis. 
-    It ensures that the height of the tree remains balanced, which significantly improves the efficiency of search, insert, and delete operations. 
-    The time complexity for these operations in AVL trees is O(log n).
+// # AVL Trees Explained
+// # --- An AVL Tree is a self-balancing binary search tree (BST) named after its inventors, Georgy Adelson-Velsky and Evgenii Landis. 
+// #     It ensures that the height of the tree remains balanced, which significantly improves the efficiency of search, insert, and delete operations. 
+// #     The time complexity for these operations in AVL trees is O(log n).
   
 
-Characteristics of AVL Trees
+/*  Characteristics of AVL Trees
 a). Balance Factor:
    --- Each node stores a balance factor, which is the difference in heights of its left and right subtrees:
        Balance Factor = Height(Left Subtree) − Height(Right Subtree)
@@ -21,10 +21,11 @@ b). Rotations:
 --- Double Rotation:
       Left-Right (LR): Left rotation followed by right rotation.
       Right-Left (RL): Right rotation followed by left rotation.
+  */
 
 
 
-AVL Tree Implementation in C
+// AVL Tree Implementation in C 
 
         #include <stdio.h>
         #include <stdlib.h>
@@ -222,15 +223,15 @@ AVL Tree Implementation in C
 
 
 
-Output :
-In-order Traversal after Insertions:
-10 20 25 30 40 50 
+// Output :
+// In-order Traversal after Insertions:
+// 10 20 25 30 40 50 
 
-In-order Traversal after Deleting 40:
-10 20 25 30 50
+// In-order Traversal after Deleting 40:
+// 10 20 25 30 50
 
 
-
+/*
 
 AVL Tree Operations
 --- Insertion
@@ -250,7 +251,7 @@ BST: Can become unbalanced, leading to worst-case O(n) operations.
 AVL Tree: Always balanced, ensuring O(logn) operations.
 
 
-
+*/
 
 
 
