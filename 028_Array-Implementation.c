@@ -1,8 +1,8 @@
----------------------* Array Implementation *---------------------
+// ---------------------* Array Implementation *---------------------
 
 
 
-
+/*
 # Array Implementation of Binary Trees
 
 Key Points
@@ -28,10 +28,10 @@ Example Binary Tree
 Array Representation:
 ['R', 'A', 'B', 'C', 'D', 'E', 'F']
 
+*/
 
 
-
-Example: Array Representation of Binary Tree with Traversals
+// Example: Array Representation of Binary Tree with Traversals
 
         #include <stdio.h>
         
@@ -93,11 +93,13 @@ Example: Array Representation of Binary Tree with Traversals
         }
 
 
-Output
+// Output
 
-Pre-order Traversal: R A C D B E F 
-In-order Traversal: C A D R E B F 
-Post-order Traversal: C D A E F B R
+// Pre-order Traversal: R A C D B E F 
+// In-order Traversal: C A D R E B F 
+// Post-order Traversal: C D A E F B R
 
-This implementation highlights efficient traversal in an array-based Binary Tree.
+// This implementation highlights efficient traversal in an array-based Binary Tree.
+
+
 
