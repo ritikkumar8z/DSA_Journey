@@ -1,8 +1,8 @@
------------------------* 🌳 Binary Trees *-------------------------
+// -----------------------* 🌳 Binary Trees *-------------------------
 
 
 
-🌳 Binary Trees in DSA
+/* 🌳 Binary Trees in DSA
 This guide provides a deep dive into Binary Trees—a foundational data structure in computer science that enables efficient data storage, sorting, searching, and more.
 
 📖 Introduction to Binary Trees
@@ -60,7 +60,7 @@ A Perfect Binary Tree has all internal nodes with exactly two children, and all 
 
 🛠️ Binary Tree Implementation in C
 Below is a simple example of implementing a Binary Tree in C, creating nodes with left and right children.
-
+*/
                 #include <stdio.h>
                 #include <stdlib.h>
                 
@@ -89,6 +89,8 @@ Below is a simple example of implementing a Binary Tree in C, creating nodes wit
                     return 0;
                 }
 
+
+/*
 Output:
 Root node: 1
 
@@ -105,9 +107,9 @@ DFS goes deep into each branch before backtracking. DFS includes three types of 
 Pre-order: Visit the node, then left subtree, then right subtree.
 In-order: Visit left subtree, then node, then right subtree.
 Post-order: Visit left subtree, then right subtree, then node.
+*/
 
-
-Example: In-order Traversal in C
+// Example: In-order Traversal in C
 
           void inOrderTraversal(struct Node* node) {
               if (node == NULL) return;
@@ -116,7 +118,7 @@ Example: In-order Traversal in C
               inOrderTraversal(node->right);
           }
 
-
+/*
 🏋️ Practice Exercise
 In the tree below, what is the relationship between node B and nodes E and F?
 
@@ -131,6 +133,6 @@ Answer:
 
 Node E is B's left child.
 Node F is B's right child.
-
+*/
 
 
