@@ -1,7 +1,7 @@
------------------------* Pre-order Traversal *----------------------------
+// -----------------------* Pre-order Traversal *----------------------------
 
 
-
+/*
 1. Introduction to Pre-order Traversal
 Definition: Pre-order Traversal is a type of Depth First Search (DFS) in binary trees, where each node is visited in the following order:
  
@@ -12,11 +12,12 @@ Visit the root node.
 Applications:
   Copying a tree.
   Creating a prefix notation for an expression tree.
+  */
   
 
 
-2. Binary Tree Structure in C
-To perform Pre-order Traversal, let's define the structure of a binary tree in C.
+// 2. Binary Tree Structure in C
+// To perform Pre-order Traversal, let's define the structure of a binary tree in C.
 
           #include <stdio.h>
           #include <stdlib.h>
@@ -40,8 +41,8 @@ To perform Pre-order Traversal, let's define the structure of a binary tree in C
 
 
 
-3. Pre-order Traversal Implementation in C
-The pre-order traversal function will print each node's data following the root-left-right order.
+// 3. Pre-order Traversal Implementation in C
+// The pre-order traversal function will print each node's data following the root-left-right order.
 
 
           // Function for pre-order traversal
@@ -59,7 +60,7 @@ The pre-order traversal function will print each node's data following the root-
           }
 
 
-
+/*
 4. Example Tree Structure
 Here’s an example binary tree:
 
@@ -69,10 +70,10 @@ Here’s an example binary tree:
                / \ / \
               4  5 6  7
 
+*/
 
-
-5. Code Example and Output
-This code constructs the above tree and performs a pre-order traversal.
+// 5. Code Example and Output
+// This code constructs the above tree and performs a pre-order traversal.
 
 
           int main() {
@@ -92,6 +93,7 @@ This code constructs the above tree and performs a pre-order traversal.
               return 0;
           }
 
+/*
 # Expected Output
   The expected output for the pre-order traversal of this binary tree is:
 
@@ -115,3 +117,4 @@ Used in applications like tree copying or evaluating prefix expressions.
 This method is recursive but can also be implemented iteratively with a stack.
 
 
+*/
