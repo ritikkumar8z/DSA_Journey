@@ -1,6 +1,6 @@
-# DSA: In-order Traversal of Binary Trees
+// # DSA: In-order Traversal of Binary Trees
 
-
+/*
 # In-order Traversal Overview
 --- In-order Traversal is a type of Depth-First Search (DFS) where each node of the Binary Tree is visited in a specific order. 
     This traversal follows these steps:
@@ -17,9 +17,9 @@ a "left, root, right" manner.
       The left subtree is visited first.
       The root node is visited second.
       The right subtree is visited last.
+    */
 
-
-Below is the C code for performing an In-order Traversal on a Binary Tree.
+// Below is the C code for performing an In-order Traversal on a Binary Tree.
 
           #include <stdio.h>
           #include <stdlib.h>
@@ -71,6 +71,8 @@ Below is the C code for performing an In-order Traversal on a Binary Tree.
               return 0;
           }
 
+
+/*
 Explanation of the Code:
 1). Node Structure :- We define a Node structure to represent each node of the tree, containing:
     a). data: The value of the node.
@@ -109,5 +111,5 @@ In-order Traversal: C, A, D, R, E, B, F, G,
   The recursion starts from the leftmost node and traverses all the way to the rightmost node.
   This traversal method is particularly useful for operations like searching, sorting, and printing the elements of a BST in order.
 
-
+*/
 
