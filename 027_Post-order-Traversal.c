@@ -1,3 +1,4 @@
+/*
 # Post-order Traversal of Binary Trees
     In Post-order Traversal, each node is visited in a "Left, Right, Root" sequence. It’s another type of Depth-First Search (DFS) traversal, 
     commonly used for tasks that involve deleting nodes or evaluating expressions represented in tree form.
@@ -12,7 +13,7 @@ Steps for Post-order Traversal
 Post-order is useful in situations where nodes need to be processed after their subtrees.
 This traversal is often used in deleting nodes in a tree since it clears child nodes before the parent node.
 In an expression tree, Post-order Traversal gives a postfix expression (used in evaluating expressions without needing parentheses).
-
+*/
           #include <stdio.h>
           #include <stdlib.h>
           
@@ -61,6 +62,8 @@ In an expression tree, Post-order Traversal gives a postfix expression (used in 
               postOrderTraversal(root);
               return 0;
           }
+
+/*
 Explanation of the Code
 a). Node Structure: The Node structure represents each tree node.
 b). Creating Nodes: The newNode() function creates nodes with the given data.
@@ -87,4 +90,9 @@ Post-order Traversal: 3 7 5 13 18 15 10
 
 Post-order Traversal processes nodes after their children, making it ideal for deletion tasks in binary trees.
 This traversal also helps in generating postfix expressions for expression trees.
+
+*/
+
+
+    
 
