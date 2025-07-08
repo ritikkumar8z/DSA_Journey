@@ -1,6 +1,6 @@
------------------------* 🌳 DSA Trees *-------------------------
+// -----------------------* 🌳 DSA Trees *-------------------------
 
- 
+ /*
 🌳 DSA Trees
 --- This repository explores the Tree data structure, a fundamental component in Data Structures and Algorithms (DSA). Trees are hierarchical, 
     branching structures commonly used in applications like file systems, databases, and network routing. This guide covers types of trees, terminology, 
@@ -48,8 +48,8 @@ Tree Size: n = 10
 🌲 Types of Trees
 🌳 Binary Tree
 A Binary Tree is a tree where each node has up to two children, commonly referred to as the left and right children.
-
-Example Implementation in C:
+*/
+// Example Implementation in C:
 
         #include <stdio.h>
         #include <stdlib.h>
@@ -74,7 +74,7 @@ Example Implementation in C:
             return 0;
         }
 
-
+/*
 Output:
 Root Node: 1
 
@@ -100,9 +100,9 @@ Each type of tree will have implementations with C code for:
 Insertion
 Deletion
 Traversal (In-order, Pre-order, Post-order)
+*/
 
-
-Example: In-order Traversal of Binary Tree in C
+// Example: In-order Traversal of Binary Tree in C
 
 void inOrderTraversal(struct Node* node) {
     if (node == NULL) return;
