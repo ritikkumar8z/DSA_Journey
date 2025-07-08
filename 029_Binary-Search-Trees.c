@@ -1,7 +1,7 @@
-----------------------* Binary Search Trees *------------------------
+// ----------------------* Binary Search Trees *------------------------
 
 
-
+/*
 Binary Search Trees (BST)
 Definition: A Binary Search Tree is a binary tree with the following properties:
     Each node has at most two children.
@@ -17,9 +17,9 @@ Operations on BST
 Insertion: Adds a new element while maintaining the BST property.
 Search: Locates an element in the tree.
 Deletion: Removes an element and rebalances the tree if necessary.
-
-Example Implementation in C
-BST Structure
+// */
+// Example Implementation in C
+// BST Structure
 
           #include <stdio.h>
           #include <stdlib.h>
@@ -99,11 +99,11 @@ BST Structure
               return 0;
           }
 
-Output
+// Output
 
-In-order Traversal of BST: 20 30 40 50 60 70 80 
-Key 40 found in BST.
+// In-order Traversal of BST: 20 30 40 50 60 70 80 
+// Key 40 found in BST.
 
-This example demonstrates basic BST operations: insertion, search, and in-order traversal.
+// This example demonstrates basic BST operations: insertion, search, and in-order traversal.
 
  
