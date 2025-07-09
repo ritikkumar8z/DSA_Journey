@@ -1,7 +1,7 @@
----------------------------* Hash Sets *---------------------------
+// ---------------------------* Hash Sets *---------------------------
 
 
-
+/*
 # Hash Sets
 # Overview
 --- A Hash Set is a data structure based on Hash Tables that allows quick search, addition, and deletion of elements. It's typically used to verify the 
@@ -20,6 +20,7 @@
 
 Step 1: Creating the Structure
 Define the Hash Set with a fixed number of buckets and basic operations.
+    */
 
           #include <stdio.h>
           #include <stdlib.h>
@@ -43,8 +44,8 @@ Define the Hash Set with a fixed number of buckets and basic operations.
 
 
 
-Step 2: Implementing the Hash Function
-The hash function will calculate the hash code by summing Unicode values of characters and taking the modulo with TABLE_SIZE.
+// Step 2: Implementing the Hash Function
+// The hash function will calculate the hash code by summing Unicode values of characters and taking the modulo with TABLE_SIZE.
 
 
         unsigned int hash_function(const char *value) {
@@ -56,8 +57,8 @@ The hash function will calculate the hash code by summing Unicode values of char
         }
 
 
-Step 3: Adding Elements
-Using the hash function to identify the bucket, we’ll add elements to the Hash Set, while handling collisions by chaining.
+// Step 3: Adding Elements
+// Using the hash function to identify the bucket, we’ll add elements to the Hash Set, while handling collisions by chaining.
 
 
         void add(const char *value) {
@@ -85,8 +86,8 @@ Using the hash function to identify the bucket, we’ll add elements to the Hash
         }
 
 
-Step 4: Checking for Element Existence
-The contains function quickly checks if an element exists by using the hash code.
+// Step 4: Checking for Element Existence
+// The contains function quickly checks if an element exists by using the hash code.
 
         int contains(const char *value) {
             unsigned int index = hash_function(value);
@@ -101,8 +102,8 @@ The contains function quickly checks if an element exists by using the hash code
         }
 
 
-Step 5: Removing Elements
-We can remove elements by navigating to the appropriate bucket and unlinking the targeted element.
+// Step 5: Removing Elements
+// We can remove elements by navigating to the appropriate bucket and unlinking the targeted element.
 
 
         void remove_element(const char *value) {
@@ -128,8 +129,8 @@ We can remove elements by navigating to the appropriate bucket and unlinking the
         }
 
 
-Step 6: Printing the Hash Set
-For visualization, we’ll print out all elements in each bucket.
+// Step 6: Printing the Hash Set
+// For visualization, we’ll print out all elements in each bucket.
 
 
         void print_set() {
@@ -145,7 +146,7 @@ For visualization, we’ll print out all elements in each bucket.
             }
         }
 
-Example Usage
+// Example Usage
 
         int main() {
             add("Thomas");
@@ -165,7 +166,7 @@ Example Usage
         
             return 0;
         }
-
+/*
 Expected Output
 
 Contains 'Peter': Yes
@@ -194,7 +195,7 @@ Bucket 6: NULL
 Bucket 7: Lisa -> NULL
 Bucket 8: NULL
 Bucket 9: Thomas -> NULL
-
+*/
 
 # Hash Set Summary
 --- Hash Code Calculation: Essential for directing elements into the correct bucket, allowing fast operations.
