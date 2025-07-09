@@ -1,9 +1,9 @@
--------------------*  Hash Maps *------------------
+// -------------------*  Hash Maps *------------------
 
 
 
 
-
+/*
 # Hash Maps
 --- A Hash Map is a type of hash table data structure that efficiently holds key-value pairs. It allows for fast operations such as searching, adding, modifying, 
     and removing entries.
@@ -27,9 +27,9 @@ v). Value: Information associated with the key, such as a name, address, etc.
 Time Complexity
 Average Case: O(1) for searching, adding, and removing entries.
 Worst Case: O(n) if all entries hash to the same bucket, requiring linear search through that bucket.
+*/
 
-
-Simple Hash Map
+// Simple Hash Map
 
           #include <stdio.h>
           #include <stdlib.h>
@@ -183,15 +183,15 @@ Simple Hash Map
 
 
 
-# Explanation of the Code :
-1). Initialization: We define a hash map as an array of pointers to Entry structs. Each Entry struct has a key, value, and a pointer to the next entry in 
-    case of collisions (chaining).
-2). Hash Function: The hash_function generates an index by summing the numeric values of characters in the key and taking modulo SIZE.
-3). Adding/Updating: The put function adds a new entry or updates an existing key-value pair. If the key is not found, a new entry is created and added to the
-    beginning of the bucket’s list.
-4). Retrieving Values: The get function searches for a key in the appropriate bucket and returns the associated value.
-5). Removing Entries: The remove_entry function deletes a specified entry from the hash map.
-6). Printing the Map: The print_map function displays all entries in each bucket.
+// # Explanation of the Code :
+// 1). Initialization: We define a hash map as an array of pointers to Entry structs. Each Entry struct has a key, value, and a pointer to the next entry in 
+//     case of collisions (chaining).
+// 2). Hash Function: The hash_function generates an index by summing the numeric values of characters in the key and taking modulo SIZE.
+// 3). Adding/Updating: The put function adds a new entry or updates an existing key-value pair. If the key is not found, a new entry is created and added to the
+//     beginning of the bucket’s list.
+// 4). Retrieving Values: The get function searches for a key in the appropriate bucket and returns the associated value.
+// 5). Removing Entries: The remove_entry function deletes a specified entry from the hash map.
+// 6). Printing the Map: The print_map function displays all entries in each bucket.
 
 
 
