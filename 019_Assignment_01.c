@@ -1,4 +1,4 @@
-# Question 1 : Arrays - Operations and Properties
+// # Question 1 : Arrays - Operations and Properties
 
 
           #include <stdio.h>
@@ -82,15 +82,15 @@
           }
 
 
-# OUTPUT #
-Initial Array: 20 15 30 5 10 
-Array after insertion: 20 15 25 30 5 10 
-Array after deletion: 20 25 30 5 10 
-Element 15 not found.
-Array after ascending sorting: 5 10 20 25 30 
-Array after descending sorting: 30 25 20 10 5 
+// # OUTPUT #
+// Initial Array: 20 15 30 5 10 
+// Array after insertion: 20 15 25 30 5 10 
+// Array after deletion: 20 25 30 5 10 
+// Element 15 not found.
+// Array after ascending sorting: 5 10 20 25 30 
+// Array after descending sorting: 30 25 20 10 5 
 
-=== Code Execution Successful ===
+// === Code Execution Successful ===
 
 
 
