@@ -1,7 +1,7 @@
------------------------* Hash Tables *----------------------
+// -----------------------* Hash Tables *----------------------
 
 
-
+/*
 # Hash Tables
 
 # Introduction
@@ -38,7 +38,7 @@ Step 2: Storing Values Using a Hash Function
 
 
 Code Example:
-          
+*/
           #include <stdio.h>
           #include <string.h>
           
@@ -55,14 +55,14 @@ Code Example:
               return 0;
           }
 
-Example Output:
-'Bob' has hash code: 5
+// Example Output:
+// 'Bob' has hash code: 5
 
 
-Step 3: Looking Up a Value
---- Instead of scanning the array, we can go directly to a bucket using the hash function to check if a name exists in the hash set.
+// Step 3: Looking Up a Value
+// --- Instead of scanning the array, we can go directly to a bucket using the hash function to check if a name exists in the hash set.
 
-Code Example:
+// Code Example:
 
         #include <stdio.h>
         #include <string.h>
@@ -95,18 +95,18 @@ Code Example:
         }
 
 
-Example Output:
+// Example Output:
 
-Contains 'Pete': Yes
-Contains 'Bob': No
+// Contains 'Pete': Yes
+// Contains 'Bob': No
 
 
 
-Step 4: Handling Collisions with Chaining
---- Collisions occur when two values hash to the same index. To handle these, we’ll implement chaining by using an array of linked lists for each bucket. 
-    This allows multiple elements to coexist in the same bucket.
+// Step 4: Handling Collisions with Chaining
+// --- Collisions occur when two values hash to the same index. To handle these, we’ll implement chaining by using an array of linked lists for each bucket. 
+//     This allows multiple elements to coexist in the same bucket.
 
-Code Example:
+// Code Example:
 
           #include <stdio.h>
           #include <stdlib.h>
@@ -161,14 +161,14 @@ Code Example:
 
 
 
-Example Output:
-Contains 'Lisa': Yes
-Contains 'Stuart': Yes
+// Example Output:
+// Contains 'Lisa': Yes
+// Contains 'Stuart': Yes
 
 
 
-Step 5: Complete Hash Set Code Example
---- Here’s the full code for adding, searching, and displaying the hash set using chaining for collision handling.
+// Step 5: Complete Hash Set Code Example
+// --- Here’s the full code for adding, searching, and displaying the hash set using chaining for collision handling.
 
             #include <stdio.h>
             #include <stdlib.h>
@@ -236,21 +236,21 @@ Step 5: Complete Hash Set Code Example
             }
 
 
-Example Output:
+// Example Output:
 
-Contains 'Lisa': Yes
-Contains 'Stuart': Yes
-Bucket 0: NULL
-Bucket 1: Jones -> NULL
-Bucket 2: NULL
-Bucket 3: Lisa -> Stuart -> NULL
-...
+// Contains 'Lisa': Yes
+// Contains 'Stuart': Yes
+// Bucket 0: NULL
+// Bucket 1: Jones -> NULL
+// Bucket 2: NULL
+// Bucket 3: Lisa -> Stuart -> NULL
+// ...
 
 
 
-Key Points and Summary :
---- Hash Tables are efficient for searching, inserting, and deleting, with an average O(1) time complexity.
---- Hash Sets store unique elements, ideal for quick membership tests.
---- Hash Maps use key-value pairs, where each key is unique, allowing fast retrieval based on the key.
---- Collision Handling is essential. Chaining and Open Addressing are two methods; we used chaining here.
+// Key Points and Summary :
+// --- Hash Tables are efficient for searching, inserting, and deleting, with an average O(1) time complexity.
+// --- Hash Sets store unique elements, ideal for quick membership tests.
+// --- Hash Maps use key-value pairs, where each key is unique, allowing fast retrieval based on the key.
+// --- Collision Handling is essential. Chaining and Open Addressing are two methods; we used chaining here.
 
