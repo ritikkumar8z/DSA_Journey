@@ -9,7 +9,7 @@ class Graph:
         self.adj_matrix[u][v] = c
 
     def add_vertex_data(self, vertex, data):
-        if 0 <= vertex < self.size:
+        if 0 <= vertex < self.size: 
             self.vertex_data[vertex] = data
 
     def bfs(self, s, t, parent):
