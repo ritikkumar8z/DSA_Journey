@@ -6,7 +6,7 @@ class Graph:
         self.graph = [[0] * vertices for _ in range(vertices)]
 
     def add_edge(self, u, v, capacity):
-        self.graph[u][v] = capacity
+        self.graph[u][v] = capacity 
 
     def bfs(self, s, t, parent):
         visited = [False] * self.V
@@ -49,13 +49,13 @@ class Graph:
 
 
 
-#  ▶️ Sample Usage (in test_case_runner.py)
+#  ▶️ Sample Usage (in test_case_runner.py) 
 from max_flow import Graph
 
 g = Graph(6)
 
-# Sample Graph from s(0) to t(5)
-g.add_edge(0, 1, 16)
+# Sample Graph from s(0) to t(5) 
+g.add_edge(0, 1, 16) 
 g.add_edge(0, 2, 13)
 g.add_edge(1, 2, 10)
 g.add_edge(2, 1, 4)
