@@ -11,7 +11,7 @@ class HashTable:
     def _hash(self, key):
         return hash(key) % self.size
 
-    def insert(self, key, value):
+    def insert(self, key, value): 
         index = self._hash(key)
         for pair in self.table[index]:
             if pair[0] == key:
