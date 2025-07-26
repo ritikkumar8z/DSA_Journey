@@ -7,7 +7,7 @@ def prim_mst(graph, start):
     total_cost = 0
     mst_edges = []
 
-    while min_heap: 
+    while min_heap:  
         weight, u = heapq.heappop(min_heap)
         if u in visited:
             continue
