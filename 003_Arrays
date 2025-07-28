@@ -10,7 +10,7 @@
 2. Array Declaration :
 --- To declare an array in C, you specify the data type, followed by the array name, and then the size of the array in square brackets.
     Syntax :
-        data_type array_name[array_size]; 
+        data_type array_name[array_size];  
     Example :
         int arr[5]; // declares an array of integers with size 5
         --- Here, arr can store up to 5 integers, and the elements are stored in memory in contiguous locations.---
