@@ -9,7 +9,7 @@ class Graph:
     def add_edge(self, u, v, c):  
         self.adj_matrix[u][v] = c 
  
-    def add_vertex_data(self, vertex, data): 
+    def add_vertex_data(self, vertex, data):  
         if 0 <= vertex < self.size: 
             self.vertex_data[vertex] = data  
 
