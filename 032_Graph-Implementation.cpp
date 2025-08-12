@@ -7,7 +7,7 @@ class Graph {
     vector<vector<int>> adj_matrix;
     vector<char> vertices;
 
-public:
+public: 
     Graph(const vector<char>& vertexData) {
         vertices = vertexData;
         size = vertices.size();
