@@ -6,7 +6,7 @@ class Graph:
 
     def add_edge(self, u, v, weight):
         if 0 <= u < self.size and 0 <= v < self.size:
-            self.adj_matrix[u][v] = weight
+            self.adj_matrix[u][v] = weight 
             self.adj_matrix[v][u] = weight  # Undirected graph
 
     def add_vertex_data(self, vertex, data):
