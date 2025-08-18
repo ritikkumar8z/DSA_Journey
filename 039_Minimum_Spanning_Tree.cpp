@@ -4,7 +4,7 @@ from collections import defaultdict
 def prim_mst(graph, start):
     visited = set()
     min_heap = [(0, start)]  # (weight, node)
-    total_cost = 0
+    total_cost = 0 
     mst_edges = []
 
     while min_heap:  
