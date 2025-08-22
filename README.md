@@ -10,7 +10,7 @@ Data Structures 📂
 Arrays 📊
 Linked Lists 🔗 
 Stacks 🥞
-Queues 📬
+Queues 📬 
 Hash Tables 🗂️ 
 Trees 🌲
 Graphs 🌐 
