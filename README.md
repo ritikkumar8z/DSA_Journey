@@ -11,7 +11,7 @@ Arrays 📊
 Linked Lists 🔗  
 Stacks 🥞
 Queues 📬 
-Hash Tables 🗂️ 
+Hash Tables 🗂️  
 Trees 🌲
 Graphs 🌐 
 
