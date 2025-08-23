@@ -8,7 +8,7 @@ examples, and comparisons. The goal is to make complex concepts easy to understa
 Introduction - A brief overview of the journey ahead    
 Data Structures 📂   
 Arrays 📊
-Linked Lists 🔗   
+Linked Lists 🔗  
 Stacks 🥞
 Queues 📬 
 Hash Tables 🗂️   
