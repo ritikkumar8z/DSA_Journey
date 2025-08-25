@@ -12,7 +12,7 @@ Linked Lists 🔗
 Stacks 🥞
 Queues 📬 
 Hash Tables 🗂️ 
-Trees 🌲
+Trees 🌲 
 Graphs 🌐
 
 Algorithms 🧩
