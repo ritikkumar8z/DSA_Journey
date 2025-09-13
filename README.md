@@ -10,7 +10,7 @@ Introduction - A brief overview of the journey ahead
 Data Structures 📂  
 Arrays 📊     
 Linked Lists 🔗  
-Stacks 🥞    
+Stacks 🥞     
 Queues 📬   
 Hash Tables 🗂️
 Trees 🌲   
