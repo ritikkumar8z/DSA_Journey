@@ -10,7 +10,7 @@ class Graph:
 
     def bfs(self, s, t, parent):
         visited = [False] * self.V
-        queue = deque([s]) 
+        queue = deque([s])  
         visited[s] = True
 
         while queue:
