@@ -5,7 +5,7 @@ class Graph:
         self.V = vertices
         self.graph = [[0] * vertices for _ in range(vertices)]
 
-    def add_edge(self, u, v, capacity):
+    def add_edge(self, u, v, capacity): 
         self.graph[u][v] = capacity 
 
     def bfs(self, s, t, parent):
