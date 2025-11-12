@@ -15,7 +15,7 @@ Queues 📬
 Hash Tables 🗂️    
 Trees 🌲      
 Graphs 🌐    
-  
+   
 Algorithms 🧩
 Sorting & Searching 📈
 Recursion 🔄
